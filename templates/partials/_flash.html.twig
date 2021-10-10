@@ -1,0 +1,7 @@
+{% for label, flashes in app.session.flashbag.all %}
+    {% for flash in flashes %}
+        <div class="form_{{ label }}">
+            <p>{{ flash }}</p>
+        </div>
+    {% endfor %}
+{% endfor %}

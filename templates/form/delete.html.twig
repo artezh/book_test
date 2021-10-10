@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Book delete'|trans }} {{ entity.title }}{% endblock %}
+
+{% block body %}
+    <h1 class="h2">{{ 'Book delete'|trans }} "{{ entity.title }}"</h1>
+    <div class="container">
+        <p>Вы уверены, что хотите удалить книгу "{{ entity.title }}"?</p>
+        <div>
+            {{ form_start(form) }}
+            <div class="form_row">
+                {{ form_widget(form.reset, {attr: {'class':'btn btn-primary'}}) }}
+                {{ form_widget(form.button, {attr: {'class':'btn btn-danger'}}) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock body %}

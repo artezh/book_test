@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if entity.id %}{{ 'Book edit'|trans }} "{{ entity.title }}"{% else %}{{ 'Book add'|trans }}{% endif %}
+{% endblock %}
+
+{% form_theme form 'form/errors.html.twig' %}
+
+{% block body_class %}text-center{% endblock %}
+
+{% block body %}
+    <h1 class="h2">{% if entity.id %}{{ 'Book edit'|trans }} "{{ entity.title }}"{% else %}{{ 'Book add'|trans }}{% endif %}</h1>
+    <div class="page__content">
+        {% include 'partials/_flash.html.twig' %}
+        {{ form_start(form, {attr : {'class': 'content__form'}}) }}
+        {{ form_errors(form) }}
+        <div class="form_row">
+            {{ form_widget(form.title) }}
+            {{ form_label(form.title) }}
+        </div>
+        <div class="form_row">
+            {{ form_widget(form.author) }}
+            {{ form_label(form.author) }}
+        </div>
+        <div class="form_row">
+            {{ form_widget(form.price) }}
+            {{ form_label(form.price) }}
+        </div>
+        {{ form_row(form.button, {attr: {'class':'btn btn-primary'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock body %}
